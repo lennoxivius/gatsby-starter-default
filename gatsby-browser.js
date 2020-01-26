@@ -1,7 +1,11 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/browser-apis/
- */
+// https://www.gatsbyjs.org/docs/add-offline-support-with-a-service-worker/#displaying-a-message-when-a-service-worker-updates
+export const onServiceWorkerUpdateReady = () => {
+  const answer = window.confirm(
+    `Denne app er blevet opdateret. ` +
+      `Genindlæs for at se den nyeste version?`
+  )
 
-// You can delete this file if you're not using it
+  if (answer === true) {
+    window.location.reload()
+  }
+}

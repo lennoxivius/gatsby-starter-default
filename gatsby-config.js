@@ -1,3 +1,4 @@
+//require("dotenv").config()
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -11,6 +12,25 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-strapi`,
+      options: {
+        apiURL: `http://localhost:1337`,
+        contentTypes: [
+          // List of the Content Types to request from Strapi.
+          `article`,
+          `activity`,
+          `user`,
+          `gallery`,
+          `menulink`,
+          `plejehjem`,
+          `tags`,
+          `categories`,
+          `thumbnail`,
+        ],
+        queryLimit: 1000,
       },
     },
     `gatsby-transformer-sharp`,
@@ -29,6 +49,9 @@ module.exports = {
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    `gatsby-plugin-sitemap`,
+    `gatsby-plugin-netlify`,
+    `gatsby-plugin-sass`,
+    `gatsby-plugin-offline`,
   ],
 }

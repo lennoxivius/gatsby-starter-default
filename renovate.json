@@ -1,0 +1,18 @@
+{
+  "extends": ["config:base"],
+  "automerge": true,
+  "major": {
+    "automerge": false
+  },
+  "packageRules": [
+    {
+      "depTypeList": ["devDependencies"],
+      "updateTypes": ["major", "minor", "patch"],
+      "groupName": "devDependencies",
+      "sourceUrlPrefixes": ["https://github.com/gatsbyjs/gatsby"]
+    }
+  ],
+
+  "schedule": ["every weekend"],
+  "timezone": "Europe/Copenhagen"
+}
